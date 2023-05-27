@@ -5,6 +5,8 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 
     <!--Controller组件扫描-->
-    <context:component-scan base-package="hum.tan.controller" />
+    <context:component-scan base-package="hum.tan">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
 
 </beans>
