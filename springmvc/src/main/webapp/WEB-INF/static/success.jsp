@@ -1,9 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page isELIgnored="false" %>
 <html>
 <head>
     <title>Title</title>
 </head>
 <body>
-  <h1>success!</h1>
+  <h1>success! ${username}</h1>
 </body>
 </html>
