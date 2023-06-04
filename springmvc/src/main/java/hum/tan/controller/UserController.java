@@ -19,6 +19,15 @@ import java.io.IOException;
 @Controller
 @RequestMapping("/user")
 public class UserController {
+    @RequestMapping(value = "/quick9")
+    @ResponseBody
+    public User save9() {
+        User user = new User();
+        user.setUsername("hum tan");
+        user.setAge(18);
+        return user;
+    }
+
     @RequestMapping(value = "/quick8")
     @ResponseBody
     public String save8() throws JsonProcessingException {
