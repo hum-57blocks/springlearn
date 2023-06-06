@@ -1,3 +1,18 @@
+POST http://localhost:8080/springmvc_war_exploded/user/quick14
+Content-Type: application/json
+
+[
+  {
+    "username": "hum",
+    "age": 18
+  },
+  {
+    "username": "tan",
+    "age": 20
+  }
+]
+
+###
 POST http://localhost:8080/springmvc_war_exploded/user/quick13
 Content-Type: application/x-www-form-urlencoded
 
