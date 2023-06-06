@@ -1,3 +1,10 @@
+POST http://localhost:8080/springmvc_war_exploded/user/quick18
+Content-Type: application/json
+Authorization: bearer abcdefg
+
+{}
+
+###
 POST http://localhost:8080/springmvc_war_exploded/user/quick14
 Content-Type: application/json
 

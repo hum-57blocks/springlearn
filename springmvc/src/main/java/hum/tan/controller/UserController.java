@@ -20,6 +20,12 @@ import java.util.List;
 @Controller
 @RequestMapping("/user")
 public class UserController {
+    @RequestMapping(value = "/quick18")
+    @ResponseBody
+    public String save18(@RequestHeader(value = "Authorization", required = false) String token) {
+        return token;
+    }
+
     @RequestMapping(value = "/quick17")
     @ResponseBody
     public Date save17(@RequestParam(value = "date") Date date) {
