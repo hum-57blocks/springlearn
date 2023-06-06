@@ -14,11 +14,18 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 
 @Controller
 @RequestMapping("/user")
 public class UserController {
+    @RequestMapping(value = "/quick17")
+    @ResponseBody
+    public Date save17(@RequestParam(value = "date") Date date) {
+        return date;
+    }
+
     @RequestMapping(value = "/quick16/{username}")
     @ResponseBody
     public String save16(@PathVariable(value = "username") String username) {

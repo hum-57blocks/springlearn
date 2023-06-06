@@ -31,8 +31,17 @@
     </bean>-->
 
     <!--mvc注解驱动-->
-    <mvc:annotation-driven />
+    <mvc:annotation-driven conversion-service="conversionService" />
 
     <!--开放静态资源访问-->
     <mvc:resources mapping="/upload/**" location="/WEB-INF/upload/" />
+
+    <!--配置日期转换器-->
+    <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
+        <property name="converters">
+            <list>
+                <bean id="dateConverter" class="hum.tan.converter.DateConverter" />
+            </list>
+        </property>
+    </bean>
 </beans>
