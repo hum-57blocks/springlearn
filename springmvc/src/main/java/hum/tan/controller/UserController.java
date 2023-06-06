@@ -20,6 +20,12 @@ import java.util.List;
 @Controller
 @RequestMapping("/user")
 public class UserController {
+    @RequestMapping(value = "/quick19")
+    @ResponseBody
+    public String save19(@CookieValue(value = "JSESSIONID", required = false) String jsessionId) {
+        return jsessionId;
+    }
+
     @RequestMapping(value = "/quick18")
     @ResponseBody
     public String save18(@RequestHeader(value = "Authorization", required = false) String token) {
