@@ -19,6 +19,12 @@ import java.io.IOException;
 @Controller
 @RequestMapping("/user")
 public class UserController {
+    @RequestMapping(value = "/quick12")
+    @ResponseBody
+    public String[] save12(String[] username) {
+        return username;
+    }
+
     @RequestMapping(value = "/quick11")
     @ResponseBody
     public User save11(User user) {
