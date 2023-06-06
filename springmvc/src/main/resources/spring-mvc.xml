@@ -32,4 +32,7 @@
 
     <!--mvc注解驱动-->
     <mvc:annotation-driven />
+
+    <!--开放静态资源访问-->
+    <mvc:resources mapping="/upload/**" location="/WEB-INF/upload/" />
 </beans>
