@@ -9,10 +9,12 @@ import hum.tan.domain.VO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.File;
 import java.io.IOException;
 import java.util.Date;
 import java.util.List;
@@ -20,6 +22,14 @@ import java.util.List;
 @Controller
 @RequestMapping("/user")
 public class UserController {
+    @RequestMapping(value = "/quick20")
+    @ResponseBody
+    public String save20(String username, MultipartFile file) throws IOException {
+        String originalFilename = file.getOriginalFilename();
+        file.transferTo(new File("D:\\upload\\" + originalFilename));
+        return username;
+    }
+
     @RequestMapping(value = "/quick19")
     @ResponseBody
     public String save19(@CookieValue(value = "JSESSIONID", required = false) String jsessionId) {
