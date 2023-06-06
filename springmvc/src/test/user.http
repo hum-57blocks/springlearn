@@ -1,0 +1,6 @@
+POST http://localhost:8080/springmvc_war_exploded/user/quick13
+Content-Type: application/x-www-form-urlencoded
+
+userList[0].username=hum&userList[0].age=18&userList[1].username=tan&userList[1].age=20
+
+###

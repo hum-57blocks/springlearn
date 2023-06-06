@@ -5,6 +5,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import hum.tan.domain.User;
+import hum.tan.domain.VO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +20,12 @@ import java.io.IOException;
 @Controller
 @RequestMapping("/user")
 public class UserController {
+    @RequestMapping(value = "/quick13")
+    @ResponseBody
+    public VO save13(VO vo) {
+        return vo;
+    }
+
     @RequestMapping(value = "/quick12")
     @ResponseBody
     public String[] save12(String[] username) {
