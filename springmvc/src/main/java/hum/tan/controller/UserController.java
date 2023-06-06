@@ -22,6 +22,16 @@ import java.util.List;
 @Controller
 @RequestMapping("/user")
 public class UserController {
+    @RequestMapping(value = "/quick21")
+    @ResponseBody
+    public String save20(String username, List<MultipartFile> files) throws IOException {
+        for (MultipartFile file : files) {
+            String originalFilename = file.getOriginalFilename();
+            file.transferTo(new File("D:\\upload\\" + originalFilename));
+        }
+        return username;
+    }
+
     @RequestMapping(value = "/quick20")
     @ResponseBody
     public String save20(String username, MultipartFile file) throws IOException {
