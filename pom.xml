@@ -11,6 +11,7 @@
     <modules>
         <module>springweb</module>
         <module>springmvc</module>
+        <module>springjdbc</module>
     </modules>
 
     <properties>
