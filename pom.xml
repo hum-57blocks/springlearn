@@ -12,6 +12,7 @@
         <module>springweb</module>
         <module>springmvc</module>
         <module>springjdbc</module>
+        <module>springtest</module>
     </modules>
 
     <properties>
