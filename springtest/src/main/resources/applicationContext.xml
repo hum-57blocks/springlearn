@@ -37,6 +37,7 @@
     </bean>
     <bean id="userService" class="hum.tan.service.impl.UserServiceImpl">
         <property name="userDao" ref="userDao" />
+        <property name="roleDao" ref="roleDao" />
     </bean>
 
 </beans>
