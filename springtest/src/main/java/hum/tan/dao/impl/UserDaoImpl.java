@@ -23,4 +23,17 @@ public class UserDaoImpl implements UserDao {
 
         return userList;
     }
+
+    @Override
+    public Long save(User user) {
+        jdbcTemplate.update("insert into `sys_user` values (?, ?, ?, ?, ?)", null, user.getUsername(), user.getEmail(), user.getPassword(), user.getPhoneNum());
+        return null;
+    }
+
+    @Override
+    public void saveUserRoleRel(Long userId, List<Long> roleIds) {
+        for (Long roleId : roleIds) {
+            jdbcTemplate.update("insert into `sys_user_role` values (?, ?)", userId, roleId);
+        }
+    }
 }

@@ -37,4 +37,10 @@ public class UserServiceImpl implements UserService {
 
         return userList;
     }
+
+    @Override
+    public void save(User user, List<Long> roleIds) {
+        Long userId = userDao.save(user);
+        userDao.saveUserRoleRel(userId, roleIds);
+    }
 }

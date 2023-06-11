@@ -8,4 +8,6 @@ public interface UserService {
 
     List<User> list();
 
+    void save(User user, List<Long> roleIds);
+
 }
