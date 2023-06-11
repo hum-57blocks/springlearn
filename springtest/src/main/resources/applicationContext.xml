@@ -23,4 +23,15 @@
         <property name="dataSource" ref="dataSource" />
     </bean>
 
+    <!--配置Dao-->
+    <bean id="roleDao" class="hum.tan.dao.impl.RoleDaoImpl">
+        <property name="jdbcTemplate" ref="jdbcTemplate" />
+    </bean>
+
+    <!--配置Service-->
+    <bean id="roleService" class="hum.tan.service.impl.RoleServiceImpl">
+        <property name="roleDao" ref="roleDao" />
+    </bean>
+
+
 </beans>
