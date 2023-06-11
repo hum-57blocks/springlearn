@@ -6,6 +6,7 @@ import hum.tan.service.RoleService;
 import hum.tan.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -52,6 +53,13 @@ public class UserController {
     @RequestMapping("/save")
     public String save(User user, @RequestParam("roleIds") List<Long> roleIds) {
         userService.save(user, roleIds);
+
+        return "redirect:/user/list";
+    }
+
+    @RequestMapping("/del/{userId}")
+    public String del(@PathVariable("userId") Long userId) {
+        userService.del(userId);
 
         return "redirect:/user/list";
     }

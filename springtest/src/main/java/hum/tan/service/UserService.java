@@ -10,4 +10,5 @@ public interface UserService {
 
     void save(User user, List<Long> roleIds);
 
+    void del(Long userId);
 }

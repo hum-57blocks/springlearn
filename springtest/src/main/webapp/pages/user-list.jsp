@@ -157,7 +157,7 @@
 												</c:forEach>
 											</td>
 											<td class="text-center">
-												<a href="javascript:void(0);" class="btn bg-olive btn-xs">删除</a>
+												<a href="javascript:void(0);" onclick="delUser(${user.id})" class="btn bg-olive btn-xs">删除</a>
 											</td>
 										</tr>
 									</c:forEach>
@@ -297,6 +297,12 @@
 															!clicks);
 												});
 							});
+
+			function delUser(userId) {
+				if (confirm("你确认要删除吗？")) {
+					location.href = "${pageContext.request.contextPath}/user/del/" + userId;
+				}
+			}
 		</script>
 </body>
 
