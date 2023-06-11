@@ -1,7 +1,7 @@
 package hum.tan.controller;
 
-import hum.tan.domain.Role;
-import hum.tan.service.RoleService;
+import hum.tan.domain.User;
+import hum.tan.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,29 +9,25 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
-@RequestMapping("/role")
+@RequestMapping("/user")
 @Controller
-public class RoleController {
+public class UserController {
 
     @Autowired
-    private RoleService roleService;
+    private UserService userService;
 
     @RequestMapping("/list")
     public ModelAndView list() {
+
         ModelAndView modelAndView = new ModelAndView();
 
-        List<Role> roleList = roleService.list();
+        List<User> userList = userService.list();
 
-        modelAndView.addObject("roleList", roleList);
+        modelAndView.addObject("userList", userList);
 
-        modelAndView.setViewName("role-list");
+        modelAndView.setViewName("user-list");
 
         return modelAndView;
     }
 
-    @RequestMapping("/save")
-    public String save(Role role) {
-        roleService.save(role);
-        return "redirect:/role/list";
-    }
 }

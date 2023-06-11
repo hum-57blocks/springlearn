@@ -27,11 +27,16 @@
     <bean id="roleDao" class="hum.tan.dao.impl.RoleDaoImpl">
         <property name="jdbcTemplate" ref="jdbcTemplate" />
     </bean>
+    <bean id="userDao" class="hum.tan.dao.impl.UserDaoImpl">
+        <property name="jdbcTemplate" ref="jdbcTemplate" />
+    </bean>
 
     <!--配置Service-->
     <bean id="roleService" class="hum.tan.service.impl.RoleServiceImpl">
         <property name="roleDao" ref="roleDao" />
     </bean>
-
+    <bean id="userService" class="hum.tan.service.impl.UserServiceImpl">
+        <property name="userDao" ref="userDao" />
+    </bean>
 
 </beans>
