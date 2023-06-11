@@ -2,10 +2,11 @@ package hum.tan.dao.impl;
 
 import hum.tan.dao.UserDao;
 import hum.tan.domain.User;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.*;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 
+import java.sql.PreparedStatement;
 import java.util.List;
 
 public class UserDaoImpl implements UserDao {
@@ -26,8 +27,26 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public Long save(User user) {
-        jdbcTemplate.update("insert into `sys_user` values (?, ?, ?, ?, ?)", null, user.getUsername(), user.getEmail(), user.getPassword(), user.getPhoneNum());
-        return null;
+        // 创建PreparedStatementCreator
+        PreparedStatementCreator creator = con -> {
+            PreparedStatement preparedStatement = con.prepareStatement("insert into `sys_user` values (?, ?, ?, ?, ?)", PreparedStatement.RETURN_GENERATED_KEYS);
+            preparedStatement.setObject(1, null);
+            preparedStatement.setString(2, user.getUsername());
+            preparedStatement.setString(3, user.getEmail());
+            preparedStatement.setString(4, user.getPassword());
+            preparedStatement.setString(5, user.getPhoneNum());
+            return preparedStatement;
+        };
+
+        // 创建KeyHolder
+        KeyHolder keyHolder = new GeneratedKeyHolder();
+
+        jdbcTemplate.update(creator, keyHolder);
+
+        // 获取生成的主键ID
+        Long userId = keyHolder.getKey().longValue();
+
+        return userId;
     }
 
     @Override
