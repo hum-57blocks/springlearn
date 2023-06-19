@@ -25,4 +25,12 @@
     <!--组件扫描 Controller-->
     <context:component-scan base-package="hum.tan.controller" />
 
+    <!--配置拦截器-->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="hum.tan.interceptor.MyInterceptor" />
+        </mvc:interceptor>
+    </mvc:interceptors>
+
 </beans>
